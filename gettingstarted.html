@@ -1,0 +1,87 @@
+---
+title: Quickstart
+heading: Start Using Xpect
+subtitle: Installation and quickstart instructions
+---
+
+<div class="container">
+  <div class="row intro">
+     <div class="col-md-24">
+        <p class="text-justify"><ol>
+        Get up and running quickly with the following example: <br><br>
+          <li>Install Xpect via the <a href="download.html">Downloads Page</a></li><br>
+       
+          <li>Let's assume you hava an Xtext-Language you want to test which uses the file extension <code>*.dmodel</code>. 
+          If you don't have such a language, get one in Eclipse via <br><br>
+            <span class="label label-default">File</span>  <i class="fa fa-angle-right" aria-hidden="true"> </i>
+            <span class="label label-default">New</span>  <i class="fa fa-angle-right" aria-hidden="true"> </i>
+            <span class="label label-default">Example</span>  <i class="fa fa-angle-right" aria-hidden="true"> </i>
+            <span class="label label-default">Xtext Examples</span>  <i class="fa fa-angle-right" aria-hidden="true"> </i>
+            <span class="label label-default">Xtext Domain Model</span>
+          </li>
+          <br>
+          <li>If you don't have the language installed, launch a runtime workbench where it is installed.</li><br>
+          <li>Create a new Plug-in Project and add <br><br>
+          <ul>
+            <li><code>org.xpect.xtext.lib</code></li>
+            <li>your languages runtime-project (the one with the grammar inside)</li>
+            <li>your ui-project to the dependencies.</li>
+          </ul>
+
+          <br>
+          <li>Create a new Junit Test such as:
+          <code>package mytest</code>;
+
+          <pre><code class="language-java">import org.junit.runner.RunWith;
+import org.xpect.runner.XpectRunner;
+import org.xpect.xtext.lib.tests.XtextTests;
+
+@RunWith(XpectRunner.class)
+public class MyXtextTests extends XtextTests {
+}
+          </code></pre></li><br>
+          <li>The class <code>XtextTests</code> is a test suite with predefined tests that ships with Xpect.</li><br>
+          <li>Create a file <code>mytest.dmodel.xt</code> inside the same package as the test class. <br><br>
+
+          <div class="alert alert-success" role="alert">
+          Note that this file has two file extensions. The first one indicates your language and the second one is <code>.xt</code>.
+          </div>
+
+          <pre><code class="language-java">/* XPECT_SETUP mytest.MyXtextTests END_SETUP */
+package pkg1 {
+  entity MyEntity1 {
+    
+    // int should be the java primitive
+    // XPECT linkedName at int --> int
+    id:int
+    
+    // String should be from java.lang 
+    // XPECT linkedName at String --> java.lang.String
+    name:String
+    
+    // besides "int", we can reference... and we can not reference foooobar
+    // XPECT scope at int --> int, String, java.lang.String, boolean, !foooobar, ...
+    id:int
+    
+    // XPECT errors --> "Couldn't resolve reference to JvmType 'integer'." at "integer"
+    id:integer
+  }
+}
+          </code></pre>
+          </ol>
+          Now you can try and observe the following:<br><br>
+          If you right mouse click onto the file and choose <span class="label label-default">open with</span> in the menu, there are three editors available:
+          <br><br>
+          <ol>
+            <li>An Xpect+Xtext editor with highlighting, content assist, etc. for both your language and the Xpect syntax.</li><br>
+            <li>An Xpect editor with support for the Xpect syntax.</li> <br>
+            <li>The editor for your language that you build.</li><br>
+          </ol>
+          Running the Java class as JUnit test executes the test cases specified in the <code>mytest.dmodel.xt</code> file.</p>
+          <p>If a test fails, double-clicking on it in the JUnit view opens a comparison editor which compares the test's expectation with the actual test result. This eases understanding why a test fails dramatically.
+          In the context menu of a test in the JUnit view, you can select <span class="label label-default">go to XPECT</span> to open and select test case in the DSL-File.</p>
+          <p>Find further examples for the Domainmodel Language here. For a more extensive introduction, see my blog</p>
+          <br>
+       </div>
+    </div>
+ </div>

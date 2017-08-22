@@ -1,0 +1,18 @@
+<section class="defaut-breadcrumbs hidden-print"> 
+	<div class="container">
+		<h1>Eclipse Xpect</h1> 
+		<ol class="breadcrumb"> 
+			{% for link in site.data.navigation.links %}
+				{% assign class = "" %}
+				{% if link.highlight %}
+					{% assign class = class | append: " highlight" %}
+				{% endif %}
+
+				{% if link.link == page.url %}
+					{% assign class = class | append: " active" %}
+				{% endif %}
+				<li><a href="{{ site.baseurl }}{{ link.link }}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a></li>
+			{% endfor %}
+		</ol> 
+	</div> 
+</section>

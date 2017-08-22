@@ -1,0 +1,18 @@
+---
+title: About
+heading: The Xpect Team
+subtitle: Meet the developers behind Xpect.
+---
+
+<div class="step-by-step">
+  <div class="container">
+    <div class="row step-by-step-timeline">
+
+			{% for member in site.staff_members %}
+
+				{% include staff-member.html member=member %}
+
+			{% endfor %}
+    </div>
+  </div>
+</div>

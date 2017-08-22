@@ -1,0 +1,31 @@
+title: Eclipse Xpect
+url: "https://www.eclipse.org"
+baseurl: /Xpect
+
+collections:
+  staff_members:
+    output: false
+
+gems:
+  - "jekyll-feed"
+  - "jekyll-paginate"
+  - "jekyll-archives"
+
+exclude: ["Gemfile", "Gemfile.lock", "README.md"]
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: "index.html"
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "gettingstarted.html"
+      type: "pages"
+    values:
+      layout: "default"
