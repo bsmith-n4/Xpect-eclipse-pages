@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<style>
+.spaced li {line-height: 2;}
+</style>
+
 <section>
 	<div class="container" {% if page.full_width %}style="max-width: 100%"{% endif %}>
 		{% if page.heading %}
@@ -15,4 +19,6 @@ layout: default
 	</div>
 </section>
 
+<div class="container">
 {{ content }}
+</div>
