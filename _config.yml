@@ -6,7 +6,7 @@ collections:
   staff_members:
     output: false
 
-gems:
+plugins:
   - "jekyll-feed"
   - "jekyll-paginate"
   - "jekyll-archives"
