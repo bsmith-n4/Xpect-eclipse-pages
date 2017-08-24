@@ -8,7 +8,7 @@ layout: page
 Get up and running quickly with the following example:
 
 
-{: .spaced}
+{: .spaced }
 
 1. Install Xpect via methods described in the [Downloads Page](download)
 2. Let's assume you hava an Xtext Language you want to test which uses the file extension `*.dmodel`. 
@@ -58,14 +58,13 @@ Get up and running quickly with the following example:
     }
     ```
 
+
 ### Running
 
 Now you can right-click on the file and choose <kbd>open</kbd> to reveal three editors:
-
 * An Xpect+Xtext editor with highlighting, content assist, etc. for both your language and the Xpect syntax.
 * An Xpect editor with support for the Xpect syntax.
 * The editor for your language that you build.
-
 Running the Java class as JUnit test executes the test cases specified in the `mytest.dmodel.xt` file.
 
 If a test fails, double-clicking on it in the JUnit view opens a comparison editor which compares the test's expectation with the actual test result. 
