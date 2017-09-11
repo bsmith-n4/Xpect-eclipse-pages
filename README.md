@@ -1,26 +1,30 @@
 # Xpect Eclipse Pages
 
-Eclipse pages for Xpect project
+[![Build Status](https://travis-ci.org/bsmith-n4/Xpect-eclipse-pages.svg?branch=master)](https://travis-ci.org/bsmith-n4/Xpect-eclipse-pages)
 
+Eclipse pages for Xpect project.
 
 ## Setup
 
-Most site configuration is done in `_config.yml`.
+Most site configuration lives in `_config.yml`.
 
 ## Develop
 
-These pages are built with [Jekyll](http://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
+These pages are built with [Jekyll](http://jekyllrb.com/). 
 
-Install the dependencies with [Bundler](http://bundler.io/):
+Installing the dependencies is done with [Bundler](http://bundler.io/):
 
 ~~~bash
+$ gem install bundler
 $ bundle install
 ~~~
 
-Run `jekyll` commands through Bundler to ensure you're using the right versions:
+## Rakefile
+
+the `Rakefile` contains some basic tasks for convenience. 
 
 ~~~bash
-$ bundle exec jekyll serve
+$ rake build  # generate html to ./_site
+$ rake serve  # generate html and serve on localhost
+$ rake test   # validate generated html using html-proofer
 ~~~
-
-The WWW contents are copied by default to `/_site`.
