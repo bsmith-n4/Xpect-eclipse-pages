@@ -6,12 +6,12 @@ collections:
   staff_members:
     output: false
 
-plugins:
-  - "jekyll-feed"
-  - "jekyll-paginate"
-  - "jekyll-archives"
-
-exclude: ["Gemfile", "Gemfile.lock", "README.md"]
+exclude: 
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+  - "Rakefile"
+  - vendor
 
 defaults:
   - scope:
